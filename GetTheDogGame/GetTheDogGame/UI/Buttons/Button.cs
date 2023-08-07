@@ -12,7 +12,7 @@ namespace GetTheDogGame.UI.Buttons
 		protected Game1 Game { get; }
 		protected GraphicsDevice GraphicsDevice => Game.GraphicsDevice;
 		protected ContentManager Content => Game.Content;
-		internal Texture2D Texture { get; private set; }
+		internal Texture2D Texture { get;  set; }
 		public Rectangle Rectangle { get; private set; }
 		public bool Clicked { get; private set;}
 		public Color Color { get; private set; } = Color.White;

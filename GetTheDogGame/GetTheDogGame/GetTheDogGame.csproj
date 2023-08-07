@@ -20,6 +20,7 @@
     <None Remove="UI\" />
     <None Remove="UI\States\" />
     <None Remove="UI\Buttons\" />
+    <None Remove="Others\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -37,6 +38,7 @@
     <Folder Include="UI\" />
     <Folder Include="UI\States\" />
     <Folder Include="UI\Buttons\" />
+    <Folder Include="Others\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
