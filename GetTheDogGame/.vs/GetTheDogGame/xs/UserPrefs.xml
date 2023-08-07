@@ -1,4 +1,27 @@
 ﻿<Properties StartupConfiguration="{6DC54660-5831-49D9-BC45-733148DB88B6}|Default">
-  <MonoDevelop.Ide.ItemProperties.GetTheDogGame FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.GetTheDogGame PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GetTheDogGame">
+            <Node name="GetTheDogGame">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="UI">
+                <Node name="Buttons">
+                  <Node name="MenuBtn.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
 </Properties>

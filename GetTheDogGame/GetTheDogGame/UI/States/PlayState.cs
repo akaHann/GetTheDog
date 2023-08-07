@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -69,7 +70,29 @@ namespace GetTheDogGame.UI.States
                     player.KilledEnemy(false);
                 }
 
+                if (Player.score == currentLevel.MaxScore)
+                {
+                    counter++;
+                    Player.score = 0;
+                    if(counter > 1)
+                    {
+                        Game.ChangeState(new WinnerState(Game));
+                        counter = 0;
+                    }
+                    else
+                    {
+                        Game.ChangeState(new Playing(Game) { currentLevel = level2 });
+                    }
 
+                    Thread.Sleep(400);
+                }
+            }
+            foreach (var dog in currentLevel.dogs)
+            {
+                if (player.rectangle.Intersects(dog.rectangle))
+                {
+                    dog.Collected();
+                }
             }
         }
     }

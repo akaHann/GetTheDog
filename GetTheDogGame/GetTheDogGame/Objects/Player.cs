@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using GetTheDogGame.Interfaces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +8,7 @@ namespace GetTheDogGame.Objects
 {
 	public class Player : IGameObject
 	{
+        public Rectangle rectangle;
         private Texture2D playerTexture;
         private Vector2 position;
         private Vector2 speed;
@@ -17,7 +19,6 @@ namespace GetTheDogGame.Objects
         private SpriteEffects spriteEffects = SpriteEffects.None;
         private AnimationManager animationManager;
         private KeyboardReader keyboardReader;
-
         public static int Score { get; set; }
         public bool Jump { get; set; }
 
@@ -58,6 +59,15 @@ namespace GetTheDogGame.Objects
                 SetCurrentAnimation(attackAnimation);
             if (hasJumped)
                 SetCurrentAnimation(jumpAnimation);
+        }
+
+        private void MakeAnimations()
+        {
+            runAnimation = new Animation().AddSpriteRow(width, height, 0, 11);
+            attackAnimation = new Animation().AddSpriteRow(width, height, 1, 6);
+            staticAnimation = new Animation().AddSpriteRow(width, height, 2, 6);
+            jumpAnimation = new Animation().AddSpriteRow(width, height, 3, 3);
+            deathAnimation = new Animation().AddSpriteRow(width, height, 4, 3);
         }
         private void Move()
         {
@@ -106,6 +116,32 @@ namespace GetTheDogGame.Objects
         {
             if (onTop)
                 speed.Y = -5;
+        }
+
+        public void Collision(Rectangle newRectangle, int xOffset, int yOffset)
+        {
+            rectangle = new Rectangle((int)position.X, (int)position.Y, width, height);
+
+            if (rectangle.TouchTopOf(newRectangle))
+            {
+                reachedTop = false;
+                hasJumped = false;
+                position.Y = newRectangle.Y - height;
+                speed.Y = 0f;
+            }
+            else if (rectangle.TouchLeftOf(newRectangle))
+            {
+                position.X = newRectangle.Left - rectangle.Width + 20;
+            }
+            else if (rectangle.TouchRightOf(newRectangle))
+            {
+                position.X = newRectangle.Right - 20;
+            }
+            else if (rectangle.TouchBottomOf(newRectangle))
+            {
+                reachedTop = true;
+                speed.Y += 4f;
+            }
         }
     }
 }

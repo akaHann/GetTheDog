@@ -8,7 +8,7 @@ namespace GetTheDogGame
 {
 	public class KeyboardReader : IInputReader
 	{
-        Movement Movement { get; } = new Movement();
+        public Movement Movement { get; } = new Movement();
 
         public bool Jump { get; private set; }
 
