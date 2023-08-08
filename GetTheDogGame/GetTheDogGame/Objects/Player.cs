@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Drawing;
+using GetTheDogGame.Animations;
 using GetTheDogGame.Interfaces;
+using GetTheDogGame.Others;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Color = Microsoft.Xna.Framework.Color;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace GetTheDogGame.Objects
 {
 	public class Player : IGameObject
 	{
-        public Rectangle rectangle;
+        public Microsoft.Xna.Framework.Rectangle rectangle;
         private Texture2D playerTexture;
         private Vector2 position;
         private Vector2 speed;
@@ -18,6 +22,7 @@ namespace GetTheDogGame.Objects
         private bool hasJumped, reachedTop;
         private SpriteEffects spriteEffects = SpriteEffects.None;
         private AnimationManager animationManager;
+        Animation runAnimation, staticAnimation, attackAnimation, jumpAnimation, deathAnimation;
         private KeyboardReader keyboardReader;
         public static int Score { get; set; }
         public bool Jump { get; set; }
@@ -63,11 +68,16 @@ namespace GetTheDogGame.Objects
 
         private void MakeAnimations()
         {
-            runAnimation = new Animation().AddSpriteRow(width, height, 0, 11);
-            attackAnimation = new Animation().AddSpriteRow(width, height, 1, 6);
-            staticAnimation = new Animation().AddSpriteRow(width, height, 2, 6);
-            jumpAnimation = new Animation().AddSpriteRow(width, height, 3, 3);
-            deathAnimation = new Animation().AddSpriteRow(width, height, 4, 3);
+            runAnimation = new Animation();
+            runAnimation.AddSpriteRow(width, height, 0, 11);
+            attackAnimation = new Animation();
+            attackAnimation.AddSpriteRow(width, height, 1, 6);
+            staticAnimation = new Animation();
+            staticAnimation.AddSpriteRow(width, height, 2, 6);
+            jumpAnimation = new Animation();
+            jumpAnimation.AddSpriteRow(width, height, 3, 3);
+            deathAnimation = new Animation();
+            deathAnimation.AddSpriteRow(width, height, 4, 3);
         }
         private void Move()
         {
@@ -75,7 +85,7 @@ namespace GetTheDogGame.Objects
             direction *= speed;
             position += direction;
             Box();
-            Jump();
+            Jumping();
         }
 
         private void Box()
@@ -84,7 +94,7 @@ namespace GetTheDogGame.Objects
             position.X = MathHelper.Clamp(position.X, 0, rightBorder);
         }
 
-        private void Jump()
+        private void Jumping()
         {
             bool shouldJump = keyboardReader.Jump;
 

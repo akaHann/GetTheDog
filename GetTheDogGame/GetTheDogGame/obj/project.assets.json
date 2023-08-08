@@ -102,31 +102,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Capa\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/bhc/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Capa\\Desktop\\game_dev\\GetTheDog\\GetTheDogGame\\GetTheDogGame\\GetTheDogGame.csproj",
+      "projectUniqueName": "/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/GetTheDogGame.csproj",
       "projectName": "GetTheDogGame",
-      "projectPath": "C:\\Users\\Capa\\Desktop\\game_dev\\GetTheDog\\GetTheDogGame\\GetTheDogGame\\GetTheDogGame.csproj",
-      "packagesPath": "C:\\Users\\Capa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Capa\\Desktop\\game_dev\\GetTheDog\\GetTheDogGame\\GetTheDogGame\\obj\\",
+      "projectPath": "/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/GetTheDogGame.csproj",
+      "packagesPath": "/Users/bhc/.nuget/packages/",
+      "outputPath": "/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Capa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/bhc/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -170,7 +163,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
       }
     }
   }
