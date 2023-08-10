@@ -14,7 +14,7 @@ namespace GetTheDogGame.Levels
             dogs.Add(new Dog(content, 1310, 115));
             dogs.Add(new Dog(content, 670, 595));
 
-            enemies.Add(new Zombie(_zombieTexture, 300, 550, 25));
+            enemies.Add(new Cat(_catTexture, 300, 550, 25));
             enemies.Add(new Zombie(_zombieTexture, 700, 1250, 25));
             enemies.Add(new Spikes(_spikesTexture, 140, 80, 13));
             enemies.Add(new Spikes(_spikesTexture, 600, 80, 13));
