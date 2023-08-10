@@ -1,0 +1,5 @@
+/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/Debug/net6.0/GetTheDogGame.csproj.AssemblyReference.cache
+/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/Debug/net6.0/GetTheDogGame.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/Debug/net6.0/GetTheDogGame.AssemblyInfoInputs.cache
+/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/Debug/net6.0/GetTheDogGame.AssemblyInfo.cs
+/Users/bhc/Desktop/Game/GetTheDog/GetTheDogGame/GetTheDogGame/obj/Debug/net6.0/GetTheDogGame.csproj.CoreCompileInputs.cache
