@@ -21,7 +21,8 @@ namespace GetTheDogGame.Objects
 
         internal override void MakeAnimations()
         {
-            throw new NotImplementedException();
+            staticAnimation = new Animation();
+            staticAnimation.AddSpriteRow(width, height, 0, 1);
         }
     }
 }
