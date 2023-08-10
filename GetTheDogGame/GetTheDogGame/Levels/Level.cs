@@ -31,7 +31,7 @@ namespace GetTheDogGame.Levels
             enemies = new List<Enemy>();
             dogs = new List<Dog>();
 
-            _catTexture = _content.Load <Texture2D>("cat");
+            _catTexture = _content.Load <Texture2D>("zombie");
             _zombieTexture = _content.Load<Texture2D>("zombie");
             _spikesTexture = _content.Load<Texture2D>("spikes");
             _backgroundTexture = _content.Load<Texture2D>("background");
@@ -52,8 +52,8 @@ namespace GetTheDogGame.Levels
             map.Draw(spriteBatch);
             foreach (var enemy in enemies)
                 enemy.Draw(spriteBatch);
-            foreach (var star in dog)
-                star.Draw(spriteBatch);
+            foreach (var dog in dogs)
+                dog.Draw(spriteBatch);
         }
     }
 

@@ -15,7 +15,7 @@ namespace GetTheDogGame.UI
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(_backgroundTexture, Vector2.Zero, ConsoleColor.White);
+			spriteBatch.Draw(_backgroundTexture, Vector2.Zero, Color.White);
 		}
 	}
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading;
+using GetTheDogGame.Levels;
+using GetTheDogGame.Objects;
+using GetTheDogGame.Others;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,6 +10,7 @@ namespace GetTheDogGame.UI.States
 {
 	public class PlayState : GameState
 	{
+        Game1 _game;
         private static int counter = 0;
 
         private Texture2D _playerTexture;
@@ -19,17 +23,18 @@ namespace GetTheDogGame.UI.States
 
 		public PlayState(Game1 game) : base(game)
 		{
-            _playerTexture = Content.Load<Texture2D>("");
+            _game = game;
+                _playerTexture = Content.Load<Texture2D>("sprite");
 
             keyboardReader = new KeyboardReader();
             player = new Player(_playerTexture, keyboardReader);
 
             Tiles.Content = Content;
 
-            //level1 = new Level1();
-            //level2 = new Level2();
+            level1 = new FirstLevel(game.GraphicsDevice, Content);
+            level2 = new SecondLevel(game.GraphicsDevice, Content);
 
-            //currentLevel = level;
+            currentLevel = level1;
 
         }
 
@@ -59,10 +64,10 @@ namespace GetTheDogGame.UI.States
                 }
                 else if (!keyboardReader.ReadAttack())
                 {
-                    player.score = 0;
+                    Player.Score = 0;
                     counter = 0;
-                    Game.ChangeState(new GameOverState(Game));
-                    ThreadStaticAttribute.Sleep(400);
+                    //_game.ChangeState(new GameOverState(_game));
+                    //ThreadStaticAttribute.Sleep(400);
                 }
                 else
                 {
@@ -70,18 +75,18 @@ namespace GetTheDogGame.UI.States
                     player.KilledEnemy(false);
                 }
 
-                if (Player.score == currentLevel.MaxScore)
+                if (Player.Score == currentLevel.MaxScore)
                 {
                     counter++;
-                    Player.score = 0;
+                    Player.Score = 0;
                     if(counter > 1)
                     {
-                        Game.ChangeState(new WinnerState(Game));
+                        //_game.ChangeState(new WinnerState(_game));
                         counter = 0;
                     }
                     else
                     {
-                        Game.ChangeState(new Playing(Game) { currentLevel = level2 });
+                        _game.ChangeState(new PlayState(_game) { currentLevel = level2 });
                     }
 
                     Thread.Sleep(400);

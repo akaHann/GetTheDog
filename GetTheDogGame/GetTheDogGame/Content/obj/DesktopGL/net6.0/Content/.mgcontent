@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/background.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/dog.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/enemy.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/gameover.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/gamewin.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/mainmenu.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/menu.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/play.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/quit.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/restart.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/spikes.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/sprite.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/TilesNonSliced.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/zombie.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

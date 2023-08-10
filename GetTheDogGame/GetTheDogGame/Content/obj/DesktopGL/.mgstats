@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/enemy.png","C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/bin/DesktopGL/enemy.xnb","TextureProcessor","Texture2DContent",5792,135253,0,1648589
+"C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/TilesNonSliced.png","C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/bin/DesktopGL/TilesNonSliced.xnb","TextureProcessor","Texture2DContent",5408,86101,0,0051573
+"C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/zombie.png","C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/bin/DesktopGL/zombie.xnb","TextureProcessor","Texture2DContent",8867,442453,0,0307025

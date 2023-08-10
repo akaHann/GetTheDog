@@ -7,7 +7,7 @@ namespace GetTheDogGame.UI.Buttons
 	{
 		public CloseBtn(Game1 game, int x, int y) : base(game, x, y)
 		{
-            Texture = game.Content.Load<Texture2D>("");
+            Texture = game.Content.Load<Texture2D>("quit");
 		}
 
         internal override void ButtonFunction()

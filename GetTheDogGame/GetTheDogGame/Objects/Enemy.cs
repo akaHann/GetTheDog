@@ -9,7 +9,7 @@ namespace GetTheDogGame.Objects
 	public abstract class Enemy : IGameObject, IDieable
 	{
 		public bool isAlive { get; private set; } = true;
-		Rectangle rectangle;
+		public Rectangle rectangle;
 		internal Vector2 position, speed;
 		internal SpriteEffects spriteEffects = SpriteEffects.None;
 

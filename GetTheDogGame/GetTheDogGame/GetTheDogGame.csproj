@@ -35,8 +35,6 @@
     <Folder Include="Objects\" />
     <Folder Include="Levels\" />
     <Folder Include="Animations\" />
-    <Folder Include="UI\" />
-    <Folder Include="UI\States\" />
     <Folder Include="UI\Buttons\" />
     <Folder Include="Others\" />
   </ItemGroup>

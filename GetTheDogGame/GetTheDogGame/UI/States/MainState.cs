@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using GetTheDogGame.UI.Buttons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,11 +15,11 @@ namespace GetTheDogGame.UI.States
 		{
             Thread.Sleep(200);
 
-            _backgroundTexture = Content.Load<Texture2D>("");
+            _backgroundTexture = Content.Load<Texture2D>("mainmenu");
             _background = new Background(_backgroundTexture);
 
             Buttons.Add(new StartBtn(game, 610, 400));
-            Buttons.Add(new CloseBtn(game, 610, 400));
+            Buttons.Add(new CloseBtn(game, 610, 480));
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

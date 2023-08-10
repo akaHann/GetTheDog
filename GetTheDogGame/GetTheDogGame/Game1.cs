@@ -38,7 +38,7 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        CurrentGameState = new MainMenu(this);
+        CurrentGameState = new MainState(this);
     }
 
     protected override void Update(GameTime gameTime)
