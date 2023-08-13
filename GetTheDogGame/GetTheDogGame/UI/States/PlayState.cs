@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.PortableExecutable;
 using System.Threading;
 using GetTheDogGame.Levels;
 using GetTheDogGame.Objects;
@@ -24,7 +25,7 @@ namespace GetTheDogGame.UI.States
 		public PlayState(Game1 game) : base(game)
 		{
             _game = game;
-                _playerTexture = Content.Load<Texture2D>("sprite");
+            _playerTexture = Content.Load<Texture2D>("sprite");
 
             keyboardReader = new KeyboardReader();
             player = new Player(_playerTexture, keyboardReader);
@@ -48,7 +49,6 @@ namespace GetTheDogGame.UI.States
         {
             currentLevel.Update(gameTime);
             player.Update(gameTime);
-
             foreach (CollisionTiles tile in currentLevel.map.CollisionTiles)
             {
                 player.Collision(tile.Rectangle, currentLevel.map.Width, currentLevel.map.Height);
@@ -56,32 +56,33 @@ namespace GetTheDogGame.UI.States
 
             foreach (var enemy in currentLevel.enemies)
             {
-                //TODO: spikes kunnen niet dood
                 if (player.rectangle.TouchTopOf(enemy.rectangle))
                 {
                     enemy.Die();
                     player.KilledEnemy(true);
                 }
-                else if (!keyboardReader.ReadAttack())
+                if (player.rectangle.Intersects(enemy.rectangle))
                 {
-                    Player.Score = 0;
-                    counter = 0;
-                    //_game.ChangeState(new GameOverState(_game));
-                    //ThreadStaticAttribute.Sleep(400);
+                    if (!keyboardReader.ReadAttack())
+                    {
+                        Player.score = 0;
+                        counter = 0;
+                        _game.ChangeState(new GameOverState(_game));
+                        Thread.Sleep(400);
+                    }
+                    else
+                    {
+                        enemy.Die();
+                        player.KilledEnemy(false);
+                    }
                 }
-                else
-                {
-                    enemy.Die();
-                    player.KilledEnemy(false);
-                }
-
-                if (Player.Score == currentLevel.MaxScore)
+                if (Player.score == currentLevel.MaxScore)
                 {
                     counter++;
-                    Player.Score = 0;
-                    if(counter > 1)
+                    Player.score = 0;
+                    if (counter > 1)
                     {
-                        //_game.ChangeState(new WinnerState(_game));
+                        _game.ChangeState(new WinnerState(_game));
                         counter = 0;
                     }
                     else
@@ -90,6 +91,14 @@ namespace GetTheDogGame.UI.States
                     }
 
                     Thread.Sleep(400);
+                }
+            }
+
+            foreach (var star in currentLevel.dogs)
+            {
+                if (player.rectangle.Intersects(star.rectangle))
+                {
+                    star.Collected();
                 }
             }
             foreach (var dog in currentLevel.dogs)

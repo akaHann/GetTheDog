@@ -11,7 +11,7 @@ namespace GetTheDogGame.Objects
 		public Spikes(Texture2D texture, int startPos, int endPos, int height) : base(texture, startPos, endPos, height)
 		{
 			width = 32;
-			height = 32;
+			base.height = 32;
 			scale = 1;
 
 			MakeAnimations();
@@ -23,6 +23,11 @@ namespace GetTheDogGame.Objects
         {
             staticAnimation = new Animation();
             staticAnimation.AddSpriteRow(width, height, 0, 1);
+        }
+
+        public override void Move()
+        {
+			position.X += 0;
         }
     }
 }

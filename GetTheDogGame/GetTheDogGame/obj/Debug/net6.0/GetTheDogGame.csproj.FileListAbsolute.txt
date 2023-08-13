@@ -42,3 +42,4 @@ C:\Users\Capa\Desktop\GetTheDog\GetTheDogGame\GetTheDogGame\bin\Debug\net6.0\Con
 C:\Users\Capa\Desktop\GetTheDog\GetTheDogGame\GetTheDogGame\bin\Debug\net6.0\Content\enemy.xnb
 C:\Users\Capa\Desktop\GetTheDog\GetTheDogGame\GetTheDogGame\bin\Debug\net6.0\Content\TilesNonSliced.xnb
 C:\Users\Capa\Desktop\GetTheDog\GetTheDogGame\GetTheDogGame\bin\Debug\net6.0\Content\zombie.xnb
+C:\Users\Capa\Desktop\GetTheDog\GetTheDogGame\GetTheDogGame\bin\Debug\net6.0\Content\cat.xnb

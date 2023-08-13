@@ -1,7 +1,6 @@
 ﻿using GetTheDogGame.UI.Buttons;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +11,23 @@ using System.Threading.Tasks;
 
 namespace GetTheDogGame.UI.States
 {
-    public class GameOverState : GameState
+    public class WinnerState : GameState
     {
         private Texture2D _backgroundTexture;
         private Background _background;
-        public GameOverState(Game1 game) : base(game)
+
+        public WinnerState(Game1 game) : base(game)
         {
             Thread.Sleep(200);
 
-            _backgroundTexture = Content.Load<Texture2D>("gameover");
+            _backgroundTexture = Content.Load<Texture2D>("gamewin");
             _background = new Background(_backgroundTexture);
+
             Buttons.Add(new MenuBtn(game, 610, 400));
-            Buttons.Add(new RestartBtn(game, 610, 480));
-            Buttons.Add(new CloseBtn(game, 610, 560));
+            Buttons.Add(new RestartBtn(game, 610, 400));
+            Buttons.Add(new CloseBtn(game, 610, 480));
         }
+
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _background.Draw(spriteBatch);
@@ -34,7 +36,7 @@ namespace GetTheDogGame.UI.States
             {
                 button.Draw(spriteBatch);
             }
-            }
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -45,4 +47,3 @@ namespace GetTheDogGame.UI.States
         }
     }
 }
-

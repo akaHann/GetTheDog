@@ -31,7 +31,7 @@ namespace GetTheDogGame.Levels
             enemies = new List<Enemy>();
             dogs = new List<Dog>();
 
-            _catTexture = _content.Load <Texture2D>("zombie");
+            _catTexture = _content.Load <Texture2D>("cat");
             _zombieTexture = _content.Load<Texture2D>("zombie");
             _spikesTexture = _content.Load<Texture2D>("spikes");
             _backgroundTexture = _content.Load<Texture2D>("background");

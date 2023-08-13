@@ -38,7 +38,7 @@ namespace GetTheDogGame.Objects
 		{
 			collected = true;
 			rectangle.Y = -1000;
-			Player.Score += 1;
+			Player.score += 1;
 		}
 	}
 }

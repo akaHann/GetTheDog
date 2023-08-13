@@ -11,8 +11,8 @@ namespace GetTheDogGame.Objects
         public Cat(Texture2D texture, int startPos, int endPos, int height) : base(texture, startPos, endPos, height)
         {
             base.width = 32;
-            base.height = 32;
-            base.scale = 4;
+            base.height = 34;
+            base.scale = 3;
 
             MakeAnimations();
 
@@ -22,14 +22,8 @@ namespace GetTheDogGame.Objects
 
         internal override void MakeAnimations()
         {
-            deathAnimation = new Animation();
-            deathAnimation.AddSpriteRow(width, height, 0, 11);
-
             runAnimation = new Animation();
             runAnimation.AddSpriteRow(width, height, 1, 4);
-
-            attackAnimation = new Animation();
-            attackAnimation.AddSpriteRow(width, height, 2, 7);
         }
     }
 }

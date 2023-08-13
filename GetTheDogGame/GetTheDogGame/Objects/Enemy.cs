@@ -77,7 +77,7 @@ namespace GetTheDogGame.Objects
         {
 			isAlive = false;
 			rectangle.Y = -500;
-			Player.Score += 1;
+			Player.score += 1;
         }
     }
 }

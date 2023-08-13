@@ -28,17 +28,27 @@ namespace GetTheDogGame.Animations
 
 		public void Update(GameTime gameTime)
 		{
-			secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+            int fps = 15;
+            CurrentFrame = frames[counter];
 
-			if(secondCounter >= 1 / fps)
-			{
-				counter++;
-				secondCounter = 0;
-			}
+            secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
 
-			counter %= frames.Count;
-			CurrentFrame = frames[counter];
-		}
+            if (secondCounter >= 1d / fps)
+            {
+                counter++;
+                secondCounter = 0;
+            }
+
+            if (counter >= frames.Count)
+            {
+                counter = 0;
+            }
+            CurrentFrame = frames[counter];
+            if (counter >= frames.Count)
+            {
+                counter = 0;
+            }
+        }
 	}
 }
 

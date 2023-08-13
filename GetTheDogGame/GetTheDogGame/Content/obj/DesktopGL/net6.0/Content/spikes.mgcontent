@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/spikes.png</SourceFile>
-  <SourceTime>2023-08-07T14:52:21.1398041+02:00</SourceTime>
+  <SourceTime>2023-08-07T14:54:42.1263971+02:00</SourceTime>
   <DestFile>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/bin/DesktopGL/Content/spikes.xnb</DestFile>
-  <DestTime>2023-08-10T22:22:40.9106368+02:00</DestTime>
+  <DestTime>2023-08-13T16:30:17.850595+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/background.png</File>
+    <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/cat.png</File>
     <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/dog.png</File>
     <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/enemy.png</File>
     <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/gameover.png</File>
@@ -20,6 +21,7 @@
     <File>C:/Users/Capa/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/Content/zombie.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

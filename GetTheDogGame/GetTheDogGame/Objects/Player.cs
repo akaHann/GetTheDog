@@ -12,26 +12,23 @@ namespace GetTheDogGame.Objects
 {
 	public class Player : IGameObject
 	{
-        public Microsoft.Xna.Framework.Rectangle rectangle;
-        private Texture2D playerTexture;
+        bool hasJumped, reachedTop;
+        public Rectangle rectangle;
+        private Texture2D heroTexture;
         private Vector2 position;
         private Vector2 speed;
-        private int scale;
-        private int width;
-        private int height;
-        private bool hasJumped, reachedTop;
-        private SpriteEffects spriteEffects = SpriteEffects.None;
-        private AnimationManager animationManager;
-        Animation runAnimation, staticAnimation, attackAnimation, jumpAnimation, deathAnimation;
-        private KeyboardReader keyboardReader;
-        public static int Score { get; set; }
-        public bool Jump { get; set; }
-
+        private int scale, width, height;
+        private SpriteEffects se = SpriteEffects.None;
+        Animation runAnimation, attackAnimation, staticAnimation, jumpAnimation, deathAnimation;
+        AnimationManager animationManager;
+        public static int score { get; set; }
+        public bool jump { get; set; }
+        public KeyboardReader inputReader { get; set; }
 
         public Player(Texture2D texture, IInputReader inputReader)
-		{
-            playerTexture = texture;
-            this.keyboardReader = (KeyboardReader)inputReader;
+        {
+            heroTexture = texture;
+            this.inputReader = (KeyboardReader)inputReader;
 
             speed = new Vector2(8, 5);
             position = new Vector2(50, 400);
@@ -41,21 +38,30 @@ namespace GetTheDogGame.Objects
             hasJumped = true;
 
             MakeAnimations();
+
             animationManager = new AnimationManager();
             SetCurrentAnimation(staticAnimation);
-		}
 
-        private void SetCurrentAnimation(Animation animation)
+        }
+
+        void SetCurrentAnimation(Animation animation)
         {
             animationManager.CurrentAnimation = animation;
         }
 
-        private void CheckAnimationToSet(bool moving, bool attack)
+        public void Update(GameTime gameTime)
         {
-            if (keyboardReader.Movement.Horizontal == Others.HorizontalDirection.Left)
-                spriteEffects = SpriteEffects.FlipHorizontally;
-            if (keyboardReader.Movement.Horizontal == Others.HorizontalDirection.Right)
-                spriteEffects = SpriteEffects.None;
+            CheckAnimationToSet(inputReader.ReadMovement(), inputReader.ReadAttack());
+            animationManager.CurrentAnimation.Update(gameTime);
+            Move();
+        }
+
+        void CheckAnimationToSet(bool moving, bool attack)
+        {
+            if (inputReader.movement.Horizontal == HorizontalDirection.Left)
+                se = SpriteEffects.FlipHorizontally;
+            if (inputReader.movement.Horizontal == HorizontalDirection.Right)
+                se = SpriteEffects.None;
             if (moving)
                 SetCurrentAnimation(runAnimation);
             else
@@ -66,66 +72,52 @@ namespace GetTheDogGame.Objects
                 SetCurrentAnimation(jumpAnimation);
         }
 
-        private void MakeAnimations()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            runAnimation = new Animation();
-            runAnimation.AddSpriteRow(width, height, 0, 11);
-            attackAnimation = new Animation();
-            attackAnimation.AddSpriteRow(width, height, 1, 6);
-            staticAnimation = new Animation();
-            staticAnimation.AddSpriteRow(width, height, 2, 6);
-            jumpAnimation = new Animation();
-            jumpAnimation.AddSpriteRow(width, height, 3, 3);
-            deathAnimation = new Animation();
-            deathAnimation.AddSpriteRow(width, height, 4, 3);
+            int rotation = 0;
+            spriteBatch.Draw(heroTexture, position, animationManager.CurrentAnimation.CurrentFrame.srcRectangle,
+                Color.White, rotation, new Vector2(0, 0), scale, se, 0f);
         }
+
         private void Move()
         {
-            var direction = keyboardReader.ReadInput();
+            var direction = inputReader.ReadInput();
             direction *= speed;
             position += direction;
-            Box();
-            Jumping();
+            MoveX();
+            Jump();
         }
 
-        private void Box()
+        private void MoveX()
         {
-            int rightBorder = 1400 - width * scale;
-            position.X = MathHelper.Clamp(position.X, 0, rightBorder);
+            int widthBorder = 1400;
+            int rightBorder = widthBorder - width * scale;
+            if (position.X > rightBorder)
+            {
+                position.X = rightBorder;
+            }
+            if (position.X < 0)
+            {
+                position.X = 0;
+            }
         }
 
-        private void Jumping()
+        private void Jump()
         {
-            bool shouldJump = keyboardReader.Jump;
-
-            if (shouldJump && !hasJumped && !reachedTop)
+            jump = inputReader.Jump;
+            if (speed.Y < 13)
+                speed.Y += 0.4f;
+            if (jump && !hasJumped && !reachedTop)
             {
                 hasJumped = true;
                 position.Y -= 3f;
                 speed.Y = -6f;
             }
 
-            speed.Y = MathHelper.Min(speed.Y + 0.4f, 13);
-            position.Y = MathHelper.Clamp(position.Y, 0, 787 - height);
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(playerTexture, position, animationManager.CurrentAnimation.CurrentFrame.srcRectangle,
-                Color.White, 0, Vector2.Zero, scale, spriteEffects, 0f);
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            CheckAnimationToSet(keyboardReader.ReadMovement(), keyboardReader.ReadAttack());
-            animationManager.CurrentAnimation.Update(gameTime);
-            Move();
-        }
-
-        public void KilledEnemy(bool onTop)
-        {
-            if (onTop)
-                speed.Y = -5;
+            if (position.Y + height > 787)
+            {
+                position.Y = 787 - height;
+            }
         }
 
         public void Collision(Rectangle newRectangle, int xOffset, int yOffset)
@@ -139,18 +131,47 @@ namespace GetTheDogGame.Objects
                 position.Y = newRectangle.Y - height;
                 speed.Y = 0f;
             }
-            else if (rectangle.TouchLeftOf(newRectangle))
+
+            if (rectangle.TouchLeftOf(newRectangle))
             {
-                position.X = newRectangle.Left - rectangle.Width + 20;
+                position.X = newRectangle.X - rectangle.Width + 20;
             }
-            else if (rectangle.TouchRightOf(newRectangle))
+
+            if (rectangle.TouchRightOf(newRectangle))
             {
-                position.X = newRectangle.Right - 20;
+                position.X = newRectangle.X + rectangle.Width - 40;
             }
-            else if (rectangle.TouchBottomOf(newRectangle))
+
+            if (rectangle.TouchBottomOf(newRectangle))
             {
                 reachedTop = true;
                 speed.Y += 4f;
+            }
+        }
+
+        private void MakeAnimations()
+        {
+            runAnimation = new Animation();
+            runAnimation.AddSpriteRow(width, height, 0, 11);
+
+            attackAnimation = new Animation();
+            attackAnimation.AddSpriteRow(width, height, 1, 6);
+
+            staticAnimation = new Animation();
+            staticAnimation.AddSpriteRow(width, height, 2, 6);
+
+            jumpAnimation = new Animation();
+            jumpAnimation.AddSpriteRow(width, height, 3, 3);
+
+            deathAnimation = new Animation();
+            deathAnimation.AddSpriteRow(width, height, 4, 3);
+        }
+
+        public void KilledEnemy(bool onTop)
+        {
+            if (onTop)
+            {
+                speed.Y = -5;
             }
         }
     }
