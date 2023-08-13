@@ -14,7 +14,7 @@ namespace GetTheDogGame.Objects
 	{
         bool hasJumped, reachedTop;
         public Rectangle rectangle;
-        private Texture2D heroTexture;
+        private Texture2D playerTexture;
         private Vector2 position;
         private Vector2 speed;
         private int scale, width, height;
@@ -27,14 +27,14 @@ namespace GetTheDogGame.Objects
 
         public Player(Texture2D texture, IInputReader inputReader)
         {
-            heroTexture = texture;
+            playerTexture = texture;
             this.inputReader = (KeyboardReader)inputReader;
 
             speed = new Vector2(8, 5);
             position = new Vector2(50, 400);
             scale = 1;
             width = 64;
-            height = 64;
+            height = 62;
             hasJumped = true;
 
             MakeAnimations();
@@ -75,7 +75,7 @@ namespace GetTheDogGame.Objects
         public void Draw(SpriteBatch spriteBatch)
         {
             int rotation = 0;
-            spriteBatch.Draw(heroTexture, position, animationManager.CurrentAnimation.CurrentFrame.srcRectangle,
+            spriteBatch.Draw(playerTexture, position, animationManager.CurrentAnimation.CurrentFrame.srcRectangle,
                 Color.White, rotation, new Vector2(0, 0), scale, se, 0f);
         }
 

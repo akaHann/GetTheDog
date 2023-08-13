@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "i7r5ZMpoG2Wfa6w3AG472YEt2lOARaFpSQmVnROOmTBxvns2F1FsoroySKG7cJvxrb4NCsgl+pUrpePUh9OYhQ==",
+  "dgSpecHash": "Hm74NhJiR9hh/rs+X1kcphKo5hlHr03QYPxOvPx1qNW+UV2sBki+GCieJ9y1tn804RVpQyxQGzvkku3BIRkcvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Capa\\Desktop\\GetTheDog\\GetTheDogGame\\GetTheDogGame\\GetTheDogGame.csproj",
+  "projectFilePath": "/Users/bhc/Desktop/GetTheDog/GetTheDogGame/GetTheDogGame/GetTheDogGame.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Capa\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\Capa\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "/Users/bhc/.nuget/packages/monogame.content.builder.task/3.8.1.303/monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "/Users/bhc/.nuget/packages/monogame.framework.desktopgl/3.8.1.303/monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }
