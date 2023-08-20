@@ -12,7 +12,7 @@ namespace GetTheDogGame.UI.Buttons
 
         internal override void ButtonFunction()
         {
-            //Game.ChangeState(new MainMenu(Game));
+            Game.ChangeState(new States.MainState(Game));
         }
     }
 }
