@@ -1,21 +1,23 @@
 ﻿<Properties StartupConfiguration="{6DC54660-5831-49D9-BC45-733148DB88B6}|Default">
   <MonoDevelop.Ide.ItemProperties.GetTheDogGame PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="GetTheDogGame/Objects/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GetTheDogGame/UI/States/GameState.cs">
     <Files>
-      <File FileName="GetTheDogGame/Objects/Player.cs" Line="20" Column="42" />
+      <File FileName="GetTheDogGame/Objects/Cat.cs" Line="1" Column="1" />
+      <File FileName="GetTheDogGame/Objects/Enemy.cs" Line="1" Column="1" />
+      <File FileName="GetTheDogGame/UI/States/GameState.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GetTheDogGame">
-            <Node name="GetTheDogGame">
-              <Node name="Objects">
-                <Node name="Player.cs" selected="True" />
+            <Node name="GetTheDogGame" expanded="True">
+              <Node name="Animations" expanded="True" />
+              <Node name="Levels" expanded="True">
+                <Node name="Map.cs" selected="True" />
+              </Node>
+              <Node name="Objects" expanded="True" />
+              <Node name="UI" expanded="True">
+                <Node name="States" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -23,5 +25,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
